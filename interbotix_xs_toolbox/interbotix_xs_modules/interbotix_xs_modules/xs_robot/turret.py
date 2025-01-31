@@ -189,10 +189,8 @@ class InterbotixTurretXSInterface:
         group_info: RobotInfo.Response = self.future_group_info.result()
         self.pan_name = group_info.joint_names[0]
         self.tilt_name = group_info.joint_names[1]
-        pan_limits = [group_info.joint_lower_limits[0],
-                      group_info.joint_upper_limits[0]]
-        tilt_limits = [group_info.joint_lower_limits[1],
-                       group_info.joint_upper_limits[1]]
+        pan_limits = [group_info.joint_lower_limits[0],                       group_info.joint_upper_limits[0]]
+        tilt_limits = [group_info.joint_lower_limits[1],                        group_info.joint_upper_limits[1]]
         pan_position = self.core.joint_states.position[self.core.js_index_map[self.pan_name]]
         tilt_position = self.core.joint_states.position[self.core.js_index_map[self.tilt_name]]
         self.info = {
@@ -290,8 +288,7 @@ class InterbotixTurretXSInterface:
             self.info[joint_name]['profile_velocity'] = profile_velocity
         if (
             (profile_acceleration is not None) and
-            (profile_acceleration !=
-             self.info[joint_name]['profile_acceleration'])
+            (profile_acceleration != self.info[joint_name]['profile_acceleration'])
         ):
             if (self.info[joint_name]['profile_type'] == 'velocity'):
                 future_profile_acceleration = self.core.srv_set_reg.call_async(
@@ -353,10 +350,8 @@ class InterbotixTurretXSInterface:
             (self.info[joint_name]['lower_limit'] <= position) and
             (position <= self.info[joint_name]['upper_limit'])
         ):
-            self.set_trajectory_profile(
-                joint_name, profile_velocity, profile_acceleration)
-            self.core.pub_single.publish(
-                JointSingleCommand(name=joint_name, cmd=position))
+            self.set_trajectory_profile(joint_name, profile_velocity, profile_acceleration)
+            self.core.pub_single.publish(JointSingleCommand(name=joint_name, cmd=position))
             self.info[joint_name]['command'] = position
             if (self.info[joint_name]['profile_type'] == 'time' and blocking):
                 print(self.info[joint_name]['profile_velocity'])

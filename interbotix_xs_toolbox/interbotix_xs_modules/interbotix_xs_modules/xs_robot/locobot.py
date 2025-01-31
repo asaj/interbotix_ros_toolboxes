@@ -68,7 +68,7 @@ class InterbotixLocobotXS:
         topic_dxl_joint_states: str = 'dynamixel/joint_states',
         topic_base_joint_states: str = 'mobile_base/joint_states',
         use_nav: bool = False,
-        logging_level: LoggingSeverity = LoggingSeverity.DEBUG,
+        logging_level: LoggingSeverity = LoggingSeverity.INFO,
         node_name: str = 'robot_manipulation',
         node: InterbotixRobotNode = None,
         args=None,
