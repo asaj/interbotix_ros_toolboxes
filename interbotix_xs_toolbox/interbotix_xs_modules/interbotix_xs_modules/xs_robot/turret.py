@@ -189,8 +189,8 @@ class InterbotixTurretXSInterface:
         group_info: RobotInfo.Response = self.future_group_info.result()
         self.pan_name = group_info.joint_names[0]
         self.tilt_name = group_info.joint_names[1]
-        pan_limits = [group_info.joint_lower_limits[0],                       group_info.joint_upper_limits[0]]
-        tilt_limits = [group_info.joint_lower_limits[1],                        group_info.joint_upper_limits[1]]
+        pan_limits = [group_info.joint_lower_limits[0], group_info.joint_upper_limits[0]]
+        tilt_limits = [group_info.joint_lower_limits[1], group_info.joint_upper_limits[1]]
         pan_position = self.core.joint_states.position[self.core.js_index_map[self.pan_name]]
         tilt_position = self.core.joint_states.position[self.core.js_index_map[self.tilt_name]]
         self.info = {
