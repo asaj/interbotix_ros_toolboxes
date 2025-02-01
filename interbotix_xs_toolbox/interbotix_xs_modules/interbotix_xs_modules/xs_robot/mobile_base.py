@@ -294,7 +294,9 @@ class InterbotixMobileBaseInterface(ABC):
         if self.future_nav.result():
             self.nav_status = self.future_nav.result().status
             if self.nav_status != GoalStatus.STATUS_SUCCEEDED:
-                self.core.get_node().logerror(f"Navigation failed with status '{self.nav_status}'.")
+                self.core.get_node().logerror(
+                    f"Navigation failed with status '{self.nav_status}'."
+                )
                 return True
         else:
             return False

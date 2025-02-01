@@ -360,7 +360,9 @@ class InterbotixTurretXSInterface:
                         self.info[joint_name]['profile_velocity'] * S_TO_NS))
                 )
             else:
-                self.core.get_node().get_clock().sleep_for(Duration(nanoseconds=int(delay * S_TO_NS)))
+                self.core.get_node().get_clock().sleep_for(
+                    Duration(nanoseconds=int(delay * S_TO_NS))
+                )
         else:
             self.core.get_node().logerror(
                 f"Goal position is outside the '{joint_name}' joint's limits. Will not execute."
@@ -551,7 +553,9 @@ class InterbotixTurretXSInterface:
                     )
                 )
             else:
-                self.core.get_node().get_clock().sleep_for(Duration(nanoseconds=int(delay * S_TO_NS)))
+                self.core.get_node().get_clock().sleep_for(
+                    Duration(nanoseconds=int(delay * S_TO_NS))
+                )
         else:
             self.core.get_node().logerror(
                 'One or both goal positions are outside the limits. Will not execute'

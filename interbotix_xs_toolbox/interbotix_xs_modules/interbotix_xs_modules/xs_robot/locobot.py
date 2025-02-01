@@ -39,7 +39,6 @@ from interbotix_xs_modules.xs_robot.arm import InterbotixArmXSInterface
 from interbotix_xs_modules.xs_robot.core import InterbotixRobotXSCore
 from interbotix_xs_modules.xs_robot.gripper import InterbotixGripperXSInterface
 from interbotix_xs_modules.xs_robot.turret import InterbotixTurretXSInterface
-import rclpy
 from rclpy.logging import LoggingSeverity
 
 
