@@ -99,6 +99,7 @@ class DeclareInterbotixXSArmRobotDescriptionLaunchArgument(DeclareLaunchArgument
 
 class DeclareInterbotixXSLoCoBotRobotDescriptionLaunchArgument(DeclareLaunchArgument):
     """Generate a URDF of a LoCoBot through a modified DeclareLaunchArgument object."""
+
     def __init__(
         self,
         *,
